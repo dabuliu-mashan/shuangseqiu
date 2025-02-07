@@ -14,14 +14,34 @@
     <div class="background-text"></div>
     <div class="container">
         <h1>双色球随机选号</h1>
-        <div class="numbers">
-            <div class="red-balls"></div>
-            <div class="blue-ball"></div>
+        
+        <!-- 当前号码区 -->
+        <div class="current-number">
+            <button id="generate" class="generate-btn">生成号码</button>
+            <div class="number-display">
+                <!-- 当前生成的号码会显示在这里 -->
+            </div>
         </div>
-        <button id="generate">生成号码</button>
-        <div class="history">
-            <h2>历史记录</h2>
-            <ul id="history-list"></ul>
+
+        <!-- 记录区 -->
+        <div class="history-section">
+            <h2>近期记录</h2>
+            <div class="history-container">
+                <div id="numbers-container">
+                    <!-- 显示4组号码 -->
+                </div>
+            </div>
+            <div class="controls-group">
+                <div class="page-controls">
+                    <button id="prev-page" class="page-btn">上一页</button>
+                    <span id="page-info">第 1 页</span>
+                    <button id="next-page" class="page-btn">下一页</button>
+                </div>
+                <div class="action-controls">
+                    <button id="select-all">全选</button>
+                    <button id="delete-selected" class="delete">删除</button>
+                </div>
+            </div>
         </div>
     </div>
     <script src="script.js"></script>
