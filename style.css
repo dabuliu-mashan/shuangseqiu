@@ -59,12 +59,12 @@ body {
 h1 {
     color: #333;
     margin-bottom: 1rem;
-    font-size: 1.6rem;
+    font-size: 1.4rem;
 }
 
 h2 {
     color: #333;
-    margin-bottom: 0.8rem;
+    margin-bottom: 0.6rem;
     font-size: 1.1rem;
     text-align: left;
 }
@@ -97,15 +97,13 @@ h2 {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 0.8rem;
+    gap: 0.6rem;
     margin: 0 auto;
-    flex-wrap: wrap;
-    padding: 0.3rem;
 }
 
 .ball {
-    width: 2.8rem;
-    height: 2.8rem;
+    width: 3rem;
+    height: 3rem;
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -113,7 +111,7 @@ h2 {
     font-weight: bold;
     color: white;
     box-shadow: inset 0 -3px 6px rgba(0, 0, 0, 0.2);
-    font-size: 1.1rem;
+    font-size: 1.2rem;
     position: relative;
     overflow: hidden;
 }
@@ -149,14 +147,13 @@ h2 {
     background: white;
     border-radius: 8px;
     margin-bottom: 0.4rem;
-    flex-wrap: wrap;
     gap: 0.3rem;
 }
 
 .number-group .ball {
-    width: 1.8rem;
-    height: 1.8rem;
-    font-size: 0.9rem;
+    width: 2rem;
+    height: 2rem;
+    font-size: 1rem;
 }
 
 /* 自定义圆形复选框 */
@@ -219,10 +216,10 @@ h2 {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-top: 0.8rem;
-    padding-top: 0.8rem;
+    margin-top: 1rem;
+    padding-top: 1rem;
     border-top: 1px solid #eee;
-    gap: 0.8rem;
+    gap: 1rem;
 }
 
 .page-controls {
@@ -279,46 +276,101 @@ h2 {
     text-align: center;
 }
 
-@media (max-width: 480px) {
+/* 微信桌面版弹窗适配 */
+@media screen and (min-width: 481px) and (-webkit-min-device-pixel-ratio: 0) and (min-resolution: .001dpcm) {
+    /* 只在 Webkit 内核的浏览器（如微信内置浏览器）中生效 */
     body {
+        display: block;
         padding: 0.5rem;
+        min-height: auto;
     }
 
     .container {
+        margin: 0 auto;
+    }
+
+    .background-text {
+        position: fixed;
+        height: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
         padding: 0.8rem;
     }
 
+    .container {
+        padding: 1.2rem;
+    }
+
     .current-number {
-        margin-bottom: 1rem;
+        margin-bottom: 1.2rem;
     }
 
     .generate-btn {
-        padding: 0.4rem 1.5rem;
-        margin-bottom: 0.6rem;
-    }
-
-    .history-section {
-        padding: 0.6rem;
-        margin-top: 0.6rem;
-    }
-
-    .number-group {
-        padding: 0.5rem;
-        margin-bottom: 0.3rem;
-    }
-
-    .controls-group {
-        margin-top: 0.6rem;
-        padding-top: 0.6rem;
-    }
-
-    .number-display {
-        gap: 0.4rem;
+        padding: 0.6rem 1.8rem;
+        margin-bottom: 1rem;
     }
 
     .ball {
-        width: 2.2rem;
-        height: 2.2rem;
+        width: 2.6rem;
+        height: 2.6rem;
+        font-size: 1.1rem;
+    }
+
+    .number-group .ball {
+        width: 1.8rem;
+        height: 1.8rem;
+        font-size: 0.9rem;
+    }
+
+    .number-display {
+        gap: 0.6rem;
+        min-height: 65px;
+    }
+
+    .history-section {
+        padding: 0.8rem;
+        margin-top: 0.8rem;
+    }
+
+    .number-group {
+        padding: 0.7rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .controls-group {
+        margin-top: 0.8rem;
+        padding-top: 0.8rem;
+        gap: 0.8rem;
+    }
+
+    .page-controls,
+    .action-controls {
+        gap: 0.6rem;
+    }
+
+    .page-btn, 
+    .action-controls button {
+        padding: 0.5rem 0.8rem;
+        font-size: 0.9rem;
+    }
+}
+
+/* 超小屏幕适配 */
+@media (max-width: 360px) {
+    body {
+        padding: 0.6rem;
+    }
+
+    .container {
+        padding: 1rem;
+    }
+
+    .ball {
+        width: 2.4rem;
+        height: 2.4rem;
         font-size: 1rem;
     }
 
@@ -328,61 +380,15 @@ h2 {
         font-size: 0.85rem;
     }
 
-    .timestamp {
-        font-size: 0.75rem;
-        width: 100%;
-        text-align: right;
-        margin-top: 0.3rem;
-    }
-
-    .page-controls,
-    .action-controls {
-        gap: 0.4rem;
+    .controls-group {
+        flex-direction: row; /* 保持水平排列 */
+        gap: 0.6rem;
     }
 
     .page-btn, 
     .action-controls button {
-        padding: 0.3rem 0.6rem;
-        font-size: 0.8rem;
-        min-width: 50px;
-    }
-
-    #page-info {
-        font-size: 0.8rem;
-        min-width: 3rem;
-    }
-}
-
-/* 超小屏幕适配 */
-@media (max-width: 360px) {
-    .ball {
-        width: 2rem;
-        height: 2rem;
-        font-size: 0.9rem;
-    }
-
-    .number-group .ball {
-        width: 1.4rem;
-        height: 1.4rem;
-        font-size: 0.8rem;
-    }
-
-    .number-display {
-        gap: 0.3rem;
-    }
-
-    .history-container {
-        height: 200px;
-    }
-
-    .controls-group {
-        flex-direction: column;
-        gap: 0.8rem;
-    }
-
-    .page-controls,
-    .action-controls {
-        width: 100%;
-        justify-content: center;
+        padding: 0.4rem 0.6rem;
+        font-size: 0.85rem;
+        min-width: 45px;
     }
 } 
